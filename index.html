@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#9d7bd8">
+    <title>Flappy Rocket — Nebula Edition</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="data:application/json;base64,eyJuYW1lIjoiRmxhcHB5IFJvY2tldCDigJQgTmVidWxhIEVkaXRpb24iLCJzaG9ydF9uYW1lIjoiRmxhcHB5IFJvY2tldCIsImRpc3BsYXkiOiJzdGFuZGFsb25lIiwic3RhcnRfdXJsIjoiLiIsInRoZW1lX2NvbG9yIjoiIzlkN2JkOCIsImJhY2tncm91bmRfY29sb3IiOiIjMWYyMTIxIiwiaWNvbnMiOlt7InNyYyI6ImRhdGE6aW1hZ2UvcG5nO2Jhc2U2NCxpVkJPUngwS0dnb0FBQUFOU1VoRVVnQUFBTUFBQUFEQUNBWUFBQUJYQXZtSEFBQUFCR2RCVFVFQUFMR1BDL3hoQlFBQUFDQmpTRkpOQUFCNkpnQUFnSVFBQVBvQUFBQ0E2QUFBZFRBQUFPcEFBQUZ3QVlBQUJBRCIsInNpemVzIjoiMTkyeDE5MiIsInR5cGUiOiJpbWFnZS9wbmciLCJwdXJwb3NlIjoiYW55IG1hc2thYmxlIn0seyJzcmMiOiJkYXRhOmltYWdlL3BuZztiYXNlNjQsaVZCT1J4MEtHZ29BQUFBTlNVaEVVZ0FBQU1BQUFBREFDQVlBQUFCWEF2bUhBQUFBQkdkQlRVRUFBTEdQQy94aEJRQUFBQ0JqU0ZKTkFBQjZKZ0FBZ0lRQUFQb0FBQUNBM0FBQWRUQUFBYnBBQUFGd0FZQUFCQUQ9PSIsInNpemVzIjoiNTEyeDUxMiIsInR5cGUiOiJpbWFnZS9wbmciLCJwdXJwb3NlIjoiYW55IG1hc2thYmxlIn1dfQ==">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Flappy Rocket">
+</head>
+<body>
+    <!-- Splash Screen -->
+    <div id="splash" class="overlay">
+        <div class="splash-content">
+            <div class="rocket-icon">🚀</div>
+            <h1>Flappy Rocket</h1>
+            <p>Nebula Edition</p>
+            <div class="loading-spinner"></div>
+        </div>
+    </div>
+
+    <!-- Main Menu -->
+    <div id="menu" class="overlay hidden">
+        <div class="menu-content">
+            <h1>🚀 Flappy Rocket</h1>
+            <p>Nebula Edition</p>
+            
+            <div class="skin-selector">
+                <h3>Choose Your Rocket</h3>
+                <div class="skin-options">
+                    <button class="skin-btn active" data-skin="red">🔴 Red</button>
+                    <button class="skin-btn" data-skin="blue">🔵 Blue</button>
+                    <button class="skin-btn" data-skin="gold">🟡 Gold</button>
+                    <button class="skin-btn" data-skin="mystery">✨ Mystery</button>
+                </div>
+            </div>
+            
+            <div class="menu-buttons">
+                <button id="playBtn" class="btn btn--primary btn--lg">Play Game</button>
+                <div class="install-hint">
+                    <p>💡 Add to Home Screen for best experience</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tutorial Overlay -->
+    <div id="tutorial" class="overlay hidden">
+        <div class="tutorial-content">
+            <h2>🚀 How to Play</h2>
+            <div class="tutorial-instructions">
+                <p class="instruction">Tap anywhere to thrust upward</p>
+                <p class="instruction">Avoid asteroids</p>
+            </div>
+            <div class="countdown-display">
+                <p class="countdown-text">Starting in <span id="countdown">5</span>...</p>
+                <p class="tap-hint">Tap to start now!</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Game Canvas -->
+    <canvas id="gameCanvas"></canvas>
+
+    <!-- HUD -->
+    <div id="hud" class="hud hidden">
+        <div class="hud-left">
+            <div class="score">Score: <span id="score">0</span></div>
+        </div>
+        <div class="hud-right">
+            <div class="best">Best: <span id="best">0</span></div>
+            <button id="muteBtn" class="btn btn--sm btn--secondary">🔊</button>
+        </div>
+    </div>
+
+    <!-- Game Over Overlay -->
+    <div id="gameOver" class="overlay hidden">
+        <div class="game-over-content">
+            <h2>Game Over!</h2>
+            <div class="final-score">
+                <p>Score: <span id="finalScore">0</span></p>
+                <p id="newRecord" class="new-record hidden">🎉 New Record!</p>
+            </div>
+            <div class="game-over-buttons">
+                <button id="restartBtn" class="btn btn--primary btn--lg">Restart Game</button>
+                <button id="menuBtn" class="btn btn--secondary btn--lg">Main Menu</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Controls Info -->
+    <div id="controls" class="controls-info">
+        <p class="desktop-only">Press SPACEBAR or click to thrust</p>
+        <p class="mobile-only">Tap anywhere to thrust</p>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
